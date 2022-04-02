@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const GalleryItem = ({ entry }) => {
 
@@ -31,7 +32,16 @@ const GalleryItem = ({ entry }) => {
   const detailedView = () => (
     <div style={detailedStyle}>
       <h2>{entry.trackName}</h2>
-      <h3>{entry.collectionName}</h3>
+      <h3>
+        <Link to={`/artist/${entry.artistId}`}>
+          {entry.artistName}
+        </Link>
+      </h3>
+      <h3>
+        <Link to={`/album/${entry.collectionId}`}>
+          {entry.collectionName}
+        </Link>
+      </h3>
       <h4>{entry.primaryGenreName}</h4>
       <h4>{entry.releaseDate}</h4>
     </div>
